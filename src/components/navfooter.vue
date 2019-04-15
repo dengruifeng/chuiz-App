@@ -35,6 +35,7 @@ export default {
     justify-content: space-around;
     align-items: center;
     border-top: 1px solid #ccc;
+    z-index: 999;
      a{
         display: flex;
         flex-direction: column;
