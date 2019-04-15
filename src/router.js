@@ -10,9 +10,10 @@ export default new VueRouter({
         {path:"home",component:()=>import('./view/shouye.vue')},
         {path:"fenlei",component:()=>import('./view/fenlei.vue')},
         {path:"shoppingcart",component:()=>import('./view/shoppingcart.vue')},
-        {path:"my",component:()=>import('./view/my.vue')}
+        {path:"user",component:()=>import('./view/user.vue')}
     ]
     },
+    {path:'/login',component: ()=> import('./view/login.vue')}
    
     ]
 })
