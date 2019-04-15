@@ -13,6 +13,7 @@ export default new VueRouter({
         {path:"user",component:()=>import('./view/user.vue')}
     ]
     },
+    {path:'/login',component: ()=> import('./view/login.vue')}
    
     ]
 })

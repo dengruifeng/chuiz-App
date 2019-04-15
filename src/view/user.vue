@@ -5,7 +5,7 @@
         </div>
         <div l-main-inner>
             <div class="l-main">
-                <div class="l-denglu">
+                <router-link tag="div" to="login" class="l-denglu">
                     <div class="l-dl">
                     <div class="l-img">
                             <img src="../style/img/touxiang.png" alt="">
@@ -38,7 +38,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </router-link>
                 <div class="l-address">
                     <ul>
                         <li>
