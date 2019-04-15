@@ -391,6 +391,32 @@ textarea {
     font-size: 12px;
     margin: 6px 0 0;
 }
+.color-switch li{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    border: 1px solid #ccc;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-align: center;
+    margin-right: 6px;
+}
 .color-switch li:first-child{
-
+    background-color: #eac380;
+}
+.color-switch li:nth-child(2){
+    background-color: #292941;
+}
+.color-switch li:nth-child(3){
+    background-color: #f84811;
+}
+.color-switch li:nth-child(4){
+    background-color: #979b9c;
+}
+.color-switch li:nth-child(5){
+    background-color: #585244;
+}
+.color-switch li:last-child{
+    background-color: #000;
 }
