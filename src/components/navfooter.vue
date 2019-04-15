@@ -13,7 +13,7 @@ export default {
     data(){
         return{
             navlist:[
-                {id:'电影',icon:'icon-fonts-shouye',href:'/home'},
+                {id:'首页',icon:'icon-fonts-shouye',href:'/home'},
                 {id:'分类',icon:'icon-fenlei',href:'/fenlei'},
                 {id:'购物车',icon:'icon-xiazai3',href:'/shoppingcart'},
                 {id:'我的',icon:'icon-wode',href:'/my'}
