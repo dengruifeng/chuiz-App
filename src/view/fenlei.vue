@@ -1,13 +1,9 @@
 <template>
   <div class="fenlei">
     <navhead></navhead>
-    <div v-for="(item,index) in fenleiData" :key="index">
+    <div v-for="(item,index) in computedData" :key="index">
       <phonelist :item="item"></phonelist>
-      <!-- <phonestyle1></phonestyle1>
-      <phonelist></phonelist>
-      <phonestyle2></phonestyle2> -->
-      <phonelist></phonelist>
-      <phonestyle3></phonestyle3>
+     
     </div>
   </div>
 </template>
@@ -16,9 +12,6 @@
 import Axios from "axios"
 import navhead from "../components/navhead"
 import phonelist from "../components/phonelist"
-import phonestyle1 from '../components/phonestyle1'
-import phonestyle2 from '../components/phonestyle2'
-import phonestyle3 from '../components/phonestyle3'
 export default {
   data() {
     return {
@@ -40,12 +33,25 @@ export default {
       });
     }
   },
+  computed:{
+      //数据处理
+      computedData(){
+        let data1=this.fenleiData
+        if(data1){
+          data1.forEach(x=>{
+            let data001=x.image.linkUrl.split('/')
+            console.log(data001[data001.length-1])
+            //地址商品编号重写
+            x.image.linkUrl=data001[data001.length-1]
+          })
+        return data1
+        }
+        
+      }
+  },
   components: {
     navhead,
     phonelist,
-    phonestyle1,
-    phonestyle2,
-    phonestyle3
   }
 };
 </script>
@@ -53,8 +59,10 @@ export default {
 <style lang="less">
 .fenlei {
     position: fixed;
+    width: 100%;
     top: 50px;
     bottom: 53px;
     overflow-x:hidden;
+    background-color: white;
 }
 </style>
