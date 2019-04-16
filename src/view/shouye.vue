@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div id="shouye">
     <div id="wheader">
       <div class="wheader">
         <a href="#" class="iconfont icon-caidan1"></a>
@@ -167,7 +167,7 @@
           </a>
         </div>
         <div class="layout-right">
-          <a href="#">
+          <a href="#" class="clearfix">
             <img
               src="https://resource.smartisan.com/resource/ea18e93a7a26621cf77ec7fb977fccf8.png?x-oss-process=image/resize,w_495/format,webp"
             >
@@ -329,4 +329,5 @@
 </template>
 <style>
 @import "../style/css/home.css";
+@import "../style/css/reset.css";
 </style>
