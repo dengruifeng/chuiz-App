@@ -316,7 +316,10 @@
                         <li></li>
                         <li></li>
                       </ul>
-                      <span></span>
+                      <span class="per-nav-span">
+                        <i>￥</i>
+                        <p>249.00</p>
+                      </span>
                     </div>
                   </div>
                 </a>
