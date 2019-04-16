@@ -14,7 +14,8 @@ export default new VueRouter({
         {path: '', redirect: '/home' }        
     ]
     },
-    {path:'/login',component: ()=> import('./view/login.vue')}
+    {path:'/login',component: ()=> import('./view/login.vue')},
+    {path:'/register',component: ()=> import('./view/register.vue')},
    
     ]
 })
