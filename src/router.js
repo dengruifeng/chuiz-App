@@ -13,7 +13,8 @@ export default new VueRouter({
         {path:"user",component:()=>import('./view/user.vue')}
     ]
     },
-    {path:'/login',component: ()=> import('./view/login.vue')}
+    {path:'/login',component: ()=> import('./view/login.vue')},
+    {path:'/register',component: ()=> import('./view/register.vue')},
    
     ]
 })

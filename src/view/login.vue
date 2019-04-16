@@ -13,7 +13,7 @@
         </ul>
         <ul>
           <li>忘记密码</li>
-          <li>注册</li>
+          <router-link tag="li" to="register">注册</router-link>
         </ul>
         <ul>
           <li>
