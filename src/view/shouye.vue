@@ -10,7 +10,19 @@
     <div id="main">
       <div id="wbanner">
         <div class="wbanner">
-          <img src="https://resource.smartisan.com/resource/R/R1app1.png">
+          <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"
+                v-for="(item,index)  in shouye.banner.dataList"
+                :key="index"
+                >
+                   <img :src="item.src" alt="">
+                </div>
+               
+              </div>
+    <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+          </div>
         </div>
         <div class="wnav">
           <a href="#">
@@ -329,6 +341,8 @@
 </template>
 <script>
 import axios from 'axios';
+import Swiper from 'swiper';
+import 'swiper/dist/css/swiper.min.css';
 export default {
   data() {
     return {
@@ -336,22 +350,35 @@ export default {
       shouye: []
     };
   },
-  created() {
-    this.getshouyeData();
-  },
-   methods: {
-      getshouyeData () {
-         axios.get('/api/marketing/mobile/index_0c7224a47d50b15665c10f9c112f916b.json')
-         .then(res =>{
-            console.log(res.data)
-            let data = res.data;
-            this.shouye = data;
-            console.log(this.shouye);
-        
+  methods: {
+    getshouye(){
 
+      axios.get('/api/marketing/mobile/index_0c7224a47d50b15665c10f9c112f916b.json')
+        .then(res=>{
+          let data = res.data;
+          this.shouye = data;
+          console.log(this.shouye.banner.dataList);
+        })
+    }
+  },
+    created() {
+      this.getshouye()
+    },
+    updated() {
+      if (!this.swiper) {
+        this.swiper = new Swiper('.swiper-container', {
+          loop: true, // 无缝连续轮播
+          autoplay: {
+            delay: 1000,
+            stopOnLastSlide: false,
+            disableOnInteraction: true,
+          },
+          pagination: {
+            el: '.swiper-pagination',
+          }
         })
       }
-    },
+  }
 }
 </script>
 <style scoped>
