@@ -88,7 +88,7 @@
     </div>
 
 </template>
-<style lang="less">
+<style lang="less" scoped>
 @import '../style/css/reset.css'; 
 @import '../style/css/user.less'; 
 </style>

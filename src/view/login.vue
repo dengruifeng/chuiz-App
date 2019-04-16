@@ -37,7 +37,8 @@
   </div>
 </template>
 
-<style lang="less">
+
+ <style lang="less"  scoped>
 @import "../style/css/reset.css";
 body,
 html {

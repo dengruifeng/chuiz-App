@@ -327,6 +327,6 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 @import "../style/css/home.css";
 </style>
