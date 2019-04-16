@@ -16,6 +16,6 @@ export default new VueRouter({
     },
     {path:'/login',component: ()=> import('./view/login.vue')},
     {path:'/register',component: ()=> import('./view/register.vue')},
-   
+    {path:'/details',component: ()=> import('./view/xiangqing.vue')}
     ]
 })
