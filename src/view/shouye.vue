@@ -10,7 +10,19 @@
     <div id="main">
       <div id="wbanner">
         <div class="wbanner">
-          <img src="https://resource.smartisan.com/resource/R/R1app1.png">
+          <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"
+                v-for="(item,index)  in shouye.banner && shouye.banner.dataList"
+                :key="index"
+                >
+                   <img :src="item.src" alt="">
+                </div>
+               
+              </div>
+    <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+          </div>
         </div>
         <div class="wnav">
           <a href="#">
@@ -46,8 +58,42 @@
                 </a>
               </div>
               <div class="item-w">
-                <h4>畅呼吸智能落地...</h4>
-                <P>健康无雾、便携上...</P>
+                <h4>畅呼吸智能落地式加湿器</h4>
+                <P>健康无雾、便携上加水</P>
+                <span>
+                  <i>￥</i>
+                  <p>1999.00</p>
+                </span>
+              </div>
+            </li>
+            <li>
+              <div class="wmask">
+                <a href="#/details">
+                  <img
+                    src="https://resource.smartisan.com/resource/b07b9765e272f866da6acda4ee107d88.png?x-oss-process=image/resize,w_378/format,webp"
+                  >
+                </a>
+              </div>
+              <div class="item-w">
+                <h4>坚果 Pro 2S</h4>
+                <P>双系统，无限屏</P>
+                <span>
+                  <i>￥</i>
+                  <p>1798.00</p>
+                </span>
+              </div>
+            </li>
+            <li>
+              <div class="wmask">
+                <a href="#">
+                  <img
+                    src="https://resource.smartisan.com/resource/2dc9a41577bee7f9d6c54365f542509e.png?x-oss-process=image/resize,w_530/format,webp"
+                  >
+                </a>
+              </div>
+              <div class="item-w">
+                <h4>畅呼吸智能落地式加湿器</h4>
+                <P>健康无雾、便携上加水</P>
                 <span>
                   <i>￥</i>
                   <p>1999.00</p>
@@ -80,42 +126,8 @@
                 </a>
               </div>
               <div class="item-w">
-                <h4>畅呼吸智能落地...</h4>
-                <P>健康无雾、便携上...</P>
-                <span>
-                  <i>￥</i>
-                  <p>1999.00</p>
-                </span>
-              </div>
-            </li>
-            <li>
-              <div class="wmask">
-                <a href="#">
-                  <img
-                    src="https://resource.smartisan.com/resource/b07b9765e272f866da6acda4ee107d88.png?x-oss-process=image/resize,w_378/format,webp"
-                  >
-                </a>
-              </div>
-              <div class="item-w">
-                <h4>坚果 Pro 2S</h4>
-                <P>双系统，无限屏</P>
-                <span>
-                  <i>￥</i>
-                  <p>1798.00</p>
-                </span>
-              </div>
-            </li>
-            <li>
-              <div class="wmask">
-                <a href="#">
-                  <img
-                    src="https://resource.smartisan.com/resource/2dc9a41577bee7f9d6c54365f542509e.png?x-oss-process=image/resize,w_530/format,webp"
-                  >
-                </a>
-              </div>
-              <div class="item-w">
-                <h4>畅呼吸智能落地...</h4>
-                <P>健康无雾、便携上...</P>
+                <h4>畅呼吸智能落地式加湿器</h4>
+                <P>健康无雾、便携上加水</P>
                 <span>
                   <i>￥</i>
                   <p>1999.00</p>
@@ -331,6 +343,48 @@
     </div>
   </div>
 </template>
+<script>
+import axios from 'axios';
+import Swiper from 'swiper';
+import 'swiper/dist/css/swiper.min.css';
+export default {
+  data() {
+    return {
+      //首页数据
+      shouye: []
+    };
+  },
+  methods: {
+    getshouye(){
+
+      axios.get('/api/marketing/mobile/index_0c7224a47d50b15665c10f9c112f916b.json')
+        .then(res=>{
+          let data = res.data;
+          this.shouye = data;
+          console.log(this.shouye.banner.dataList);
+        })
+    }
+  },
+    created() {
+      this.getshouye()
+    },
+    updated() {
+      if (!this.swiper) {
+        this.swiper = new Swiper('.swiper-container', {
+          loop: true, // 无缝连续轮播
+          autoplay: {
+            delay: 1000,
+            stopOnLastSlide: false,
+            disableOnInteraction: true,
+          },
+          pagination: {
+            el: '.swiper-pagination',
+          }
+        })
+      }
+  }
+}
+</script>
 <style scoped>
 @import "../style/css/home.css";
 @import "../style/css/reset.css";
