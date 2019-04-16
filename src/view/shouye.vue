@@ -327,6 +327,33 @@
     </div>
   </div>
 </template>
+<script>
+import axios from 'axios';
+export default {
+  data() {
+    return {
+      //首页数据
+      shouye: []
+    };
+  },
+  created() {
+    this.getshouyeData();
+  },
+   methods: {
+      getshouyeData () {
+         axios.get('/api/marketing/mobile/index_0c7224a47d50b15665c10f9c112f916b.json')
+         .then(res =>{
+            console.log(res.data)
+            let data = res.data;
+            this.shouye = data;
+            console.log(this.shouye);
+        
+
+        })
+      }
+    },
+}
+</script>
 <style scoped>
 @import "../style/css/home.css";
 </style>
