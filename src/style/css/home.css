@@ -1,4 +1,6 @@
-
+body,html{
+    background: #ededed;
+}
 .wheader {
     background: #000;
     width: 100%;
