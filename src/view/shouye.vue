@@ -303,7 +303,7 @@
                   >
                   <div class="per-nav-right">
                     <h5>卫衣 经典款</h5>
-                    <p>风格简洁、舒适服帖</p>~
+                    <p>风格简洁、舒适服帖</p>
                     <div class="attr-con">
                       <span class="box-border">
                         <i>男款</i>
