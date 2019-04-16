@@ -1,87 +1,6 @@
-html,
-body,
-div,
-ul,
-li,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-dl,
-dt,
-dd,
-ol,
-form,
-input,
-textarea,
-th,
-td,
-select {
-    margin: 0;
-    padding: 0;
+body,html{
+    background: #ededed;
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: normal;
-}
-
-ul,
-ol {
-    list-style: none;
-}
-
-body,
-html {
-    background: #e3e3e3;
-}
-
-img {
-    border: none;
-    vertical-align: middle;
-}
-
-a {
-    text-decoration: none;
-}
-
-table {
-    border-collapse: collapse;
-    table-layout: fixed;
-}
-
-input,
-textarea {
-    outline: none;
-    border: none;
-}
-
-textarea {
-    resize: none;
-    overflow: auto;
-}
-
-.clearfix {
-    zoom: 1;
-}
-
-.clearfix:after {
-    content: ".";
-    width: 0;
-    height: 0;
-    visibility: hidden;
-    display: block;
-    clear: both;
-    overflow: hidden;
-}
-
 .wheader {
     background: #000;
     width: 100%;
@@ -126,21 +45,23 @@ textarea {
 
 #wbanner {
     background: #fff;
+    overflow: hidden;
 }
 
 .wbanner {
-    width: 350px;
+    width: 100%;
     height: 146px;
-    padding: 10px 12px;
+    padding: 0 12px;
+    margin: 14px 0 24px 0;
+    box-sizing: border-box;
 }
 
 .wbanner img {
-    width: 350px;
+    width: 100%;
     height: 146px;
 }
 
 .wnav {
-    width: 375px;
     height: 57px;
     display: flex;
     justify-content: space-around;
@@ -149,7 +70,7 @@ textarea {
 
 .wnav a {
     display: flex;
-    width: 52px;
+    width: 62px;
     height: 52px;
     flex-direction: column;
     font-size: 10px;
@@ -169,8 +90,9 @@ textarea {
 }
 
 .whot {
-    width: 355px;
+    width: 100%;
     padding: 0 10px;
+    box-sizing: border-box;
     height: 40px;
     display: flex;
     justify-content: space-between;
@@ -204,6 +126,9 @@ textarea {
     font-weight: bold;
     font-size: 14px;
     color: #333;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
 }
 
 .item-w p {
@@ -211,6 +136,9 @@ textarea {
     font-size: 12px;
     line-height: 1.2;
     color: #7f7f7f;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
 }
 
 .item-w span {
@@ -231,32 +159,37 @@ textarea {
 }
 
 .layout-image {
-    width: 355px;
-    height: 285px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 315px;
     padding: 15px 10px;
     background: #fff;
 }
 
 .layout-left {
     float: left;
+    width: 45.6%;
 }
 
 .layout-left a {
-    display: block;
-    width: 171px;
+    display: flex;
     height: 90px;
     margin-bottom: 8px;
+    flex-direction:row;
 }
 
 .layout-left a img {
-    width: 171px;
+    width: 100%;
     height: 90px;
 }
 
-.layout-right a img {
-    width: 171px;
-    height: 286px;
+.layout-right{
+    width: 45.6%;
     float: right;
+}
+.layout-right a img {
+    width: 100%;
+    height: 286px;
 }
 
 #phone-w {
@@ -265,7 +198,7 @@ textarea {
 }
 
 .phone-w {
-    width: 375px;
+    width: 100%;
     border-bottom: 1px solid #f5f5f5;
 }
 
@@ -290,7 +223,7 @@ textarea {
 }
 
 .column-w-1 li {
-    width: 171px;
+    width: 45.6%;
     height: 268px;
     margin-right: 4px;
 }
@@ -302,7 +235,7 @@ textarea {
 }
 
 .column-item img {
-    width: 171px;
+    width: 100%;
     height: 171px;
 }
 
@@ -315,12 +248,18 @@ textarea {
     font-size: 14px;
     color: #333;
     font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
 }
 
 .item-con p {
     font-size: 12px;
     line-height: 1.2;
     color: #7f7f7f;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
 }
 
 .item-con span {
@@ -345,7 +284,7 @@ textarea {
 }
 
 .periphery {
-    width: 375px;
+    width: 100%;
     border-bottom: 1px solid #f5f5f5;
 }
 
@@ -367,7 +306,7 @@ textarea {
 }
 
 .periphery-nav>ul>li>a>img {
-    width: 126px;
+    width: 35.8%;
     height: 126px;
     margin-right: 32px;
 }
@@ -419,4 +358,18 @@ textarea {
 }
 .color-switch li:last-child{
     background-color: #000;
+}
+.per-nav-span span {
+    display: inline-block;
+    font-weight: 700;
+}
+.per-nav-span p {
+    display: inline-block;
+    color: #d44d44;
+    font-size: 12px;
+}
+.per-nav-span i {
+    font-style: normal;
+    font-size: 12px;
+    color: #d44d44;
 }
