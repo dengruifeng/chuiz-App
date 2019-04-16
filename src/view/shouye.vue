@@ -316,7 +316,10 @@
                         <li></li>
                         <li></li>
                       </ul>
-                      <span></span>
+                      <span class="per-nav-span">
+                        <i>￥</i>
+                        <p>249.00</p>
+                      </span>
                     </div>
                   </div>
                 </a>
@@ -328,7 +331,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 @import "../style/css/home.css";
 @import "../style/css/reset.css";
 </style>
