@@ -89,9 +89,9 @@
       text-align: center;
       border-radius: 4px;
       li{
-        border-radius: .15rem 0 0 .15rem;
+        border-radius: 5px 0 0 5px;
         flex-basis: 25%;
-        padding: .4rem 0;
+        padding: 8px 0;
         position: relative;
         color: #606060;
       }
