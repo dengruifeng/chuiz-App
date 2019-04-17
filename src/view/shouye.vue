@@ -49,108 +49,29 @@
         </div>
         <div class="whot-nav">
           <ul>
-            <li>
+            <li
+            v-for="item in rxsp"
+            :key="item.id"
+            >
               <div class="wmask">
                 <a href="#">
                   <img
-                    src="https://resource.smartisan.com/resource/2dc9a41577bee7f9d6c54365f542509e.png?x-oss-process=image/resize,w_530/format,webp"
+                    :src="item.shop_info.ali_image"
                   >
                 </a>
               </div>
               <div class="item-w">
-                <h4>畅呼吸智能落地式加湿器</h4>
-                <P>健康无雾、便携上加水</P>
+                <h4>
+                  {{item.shop_info.sku_mobile_sub_title}}
+                </h4>
+                <P> {{item.shop_info.sku_mobile_title}} </P>
                 <span>
-                  <i>￥</i>
-                  <p>1999.00</p>
+                  <i></i>
+                  <p> ￥ {{item.spu.price}} .00</p>
                 </span>
               </div>
             </li>
-            <li>
-              <div class="wmask">
-                <a href="#/details">
-                  <img
-                    src="https://resource.smartisan.com/resource/b07b9765e272f866da6acda4ee107d88.png?x-oss-process=image/resize,w_378/format,webp"
-                  >
-                </a>
-              </div>
-              <div class="item-w">
-                <h4>坚果 Pro 2S</h4>
-                <P>双系统，无限屏</P>
-                <span>
-                  <i>￥</i>
-                  <p>1798.00</p>
-                </span>
-              </div>
-            </li>
-            <li>
-              <div class="wmask">
-                <a href="#">
-                  <img
-                    src="https://resource.smartisan.com/resource/2dc9a41577bee7f9d6c54365f542509e.png?x-oss-process=image/resize,w_530/format,webp"
-                  >
-                </a>
-              </div>
-              <div class="item-w">
-                <h4>畅呼吸智能落地式加湿器</h4>
-                <P>健康无雾、便携上加水</P>
-                <span>
-                  <i>￥</i>
-                  <p>1999.00</p>
-                </span>
-              </div>
-            </li>
-            <li>
-              <div class="wmask">
-                <a href="#">
-                  <img
-                    src="https://resource.smartisan.com/resource/b07b9765e272f866da6acda4ee107d88.png?x-oss-process=image/resize,w_378/format,webp"
-                  >
-                </a>
-              </div>
-              <div class="item-w">
-                <h4>坚果 Pro 2S</h4>
-                <P>双系统，无限屏</P>
-                <span>
-                  <i>￥</i>
-                  <p>1798.00</p>
-                </span>
-              </div>
-            </li>
-            <li>
-              <div class="wmask">
-                <a href="#">
-                  <img
-                    src="https://resource.smartisan.com/resource/2dc9a41577bee7f9d6c54365f542509e.png?x-oss-process=image/resize,w_530/format,webp"
-                  >
-                </a>
-              </div>
-              <div class="item-w">
-                <h4>畅呼吸智能落地式加湿器</h4>
-                <P>健康无雾、便携上加水</P>
-                <span>
-                  <i>￥</i>
-                  <p>1999.00</p>
-                </span>
-              </div>
-            </li>
-            <li>
-              <div class="wmask">
-                <a href="#">
-                  <img
-                    src="https://resource.smartisan.com/resource/b07b9765e272f866da6acda4ee107d88.png?x-oss-process=image/resize,w_378/format,webp"
-                  >
-                </a>
-              </div>
-              <div class="item-w">
-                <h4>坚果 Pro 2S</h4>
-                <P>双系统，无限屏</P>
-                <span>
-                  <i>￥</i>
-                  <p>1798.00</p>
-                </span>
-              </div>
-            </li>
+           
           </ul>
         </div>
       </div>
@@ -351,7 +272,11 @@ export default {
   data() {
     return {
       //首页数据
-      shouye: []
+      shouye: [],
+      rexiao:[],
+      rexiao1:[],
+      rxsp:[]
+
     };
   },
   methods: {
@@ -361,12 +286,67 @@ export default {
         .then(res=>{
           let data = res.data;
           this.shouye = data;
-          console.log(this.shouye.banner.dataList);
+          this.rexiao1 = data.floors[0].dataList;
+          console.log(this.rexiao1);
+          console.log(this.shouye);
         })
-    }
+    },
+    getrexiao(){
+       axios.get('/test/product/skus?ids=100055701,100051701,100046411,100053302,100033802,100040501,100040603,100053911,100046409,100046411,100051701,100051704,100047903,100040605,100046702,100042101,100041701,100045201,100052001,100052101,100052201,100052301,100052401,100050001,100049501,100049401,100049301,100049101,100048901,  100048801,100045201,100045101,100045001,100044901,100052901,100047301,100042803,100042201,100023501,100055301,100052803,100047701,100037801,100047001,100047101,100042601,100049901,100049801,100033802,100040501,100055701,100055801,100036501,100036401,100036301,100036302,100035704,100056001,100034139,100052533,100040140,100054908,100054004,100054803,100053610,100039708,100043313,100043805,100025426,100053302,100053202,100050601,100042301,100054601,100050403,100050301,100022201,100054301,100053101,100055403,100054501,100032201,100022901,100050901,100045803,100050405,100040401,100041601,100032401&with_stock=true&with_spu=true',{
+         headers:{
+           'content-type': 'application/json,'
+         }
+       })
+        .then(res=>{
+          let data = res.data;
+          this.rexiao = data.data.list;
+          console.log(this.rexiao);
+          this.$nextTick(()=>{
+           
+                 for(let i=0;i<this.rexiao1.length;i++){
+                    for(let k=0;k<this.rexiao.length;k++){
+                      if(this.rexiao1[i]==this.rexiao[k].id){
+                          this.rxsp.push(this.rexiao[k]);
+                        }
+                        }
+                        }
+                      console.log(this.rxsp)
+          })
+          // setTimeout(() => {
+          //    var obj={};
+          //        for(let i=0;i<this.rexiao1.length;i++){
+          //           for(let k=0;k<this.rexiao.length;k++){
+          //             if(this.rexiao1[i]==this.rexiao[k].id){
+          //                 obj=this.rexiao[k];
+          //                 break;
+          //               }
+          //               }
+          //               }
+          //             console.log(obj)
+          //             // return obj
+          // }, 2000);
+         
+        })
+    },
+    // fn(rexiao1,rexiao){
+    //     console.log(rexiao1)
+    //  var obj={};
+    //     for(let i=0;i<rexiao1.length;i++){
+    //       for(let k=0;k<rexiao.length;k++){
+    //         if(rexiao1[i]==rexiao[k].id){
+    //           obj=rexiao[k];
+    //           break;
+    //         }
+    //       }
+    //     }
+    //     console.log(obj)
+    //     return obj
+    // }
+   
   },
     created() {
-      this.getshouye()
+      this.getshouye();
+      this.getrexiao();
     },
     updated() {
       if (!this.swiper) {
