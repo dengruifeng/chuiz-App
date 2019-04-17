@@ -57,6 +57,14 @@
       <div class="floor-detail">
         <div class="detail-title">
           <h2>商品详情</h2>
+          <img src="https://resource.smartisan.com/resource/a115f37d26c5ce4a99c0b5569cb736ab.jpg?x-oss-process=image/resize,w_1125/indexcrop,y_1440,i_0/format,webp">
+        </div>
+      </div>
+      <div class="xq-footer">
+        <div>
+            <span>
+              <a href="#">到货通知</a>
+            </span>
         </div>
       </div>
     </div>
@@ -119,7 +127,7 @@ body,html{
     }
 }
 #xq-main{
-  position: fixed;
+  position: relative;
   top: 50px;
   .header-tabbox{
     box-sizing: border-box;
@@ -227,6 +235,7 @@ body,html{
       margin-bottom: 6px;
       .floor-item-bot-1{
         padding: 16px 30px 12px 16px;
+        background:#fff;
         h6{
           font-size: 12px;
           font-weight: 700;
@@ -268,6 +277,60 @@ body,html{
     background:#fff;
     .detail-title{
       padding: 0 12px;
+      h2{
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
+        font-weight: 700;
+        color: #666;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      img{
+        width: 100%;
+        height: 500px;
+      }
+    }
+  }
+  .xq-footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    background: #fff;
+    height:57px;
+    padding: 0 .4%;
+    z-index: 202;
+    box-shadow: 0 -11px 27px rgba(0,0,0,.08);
+    div{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-basis: 100%;
+      box-sizing: border-box;
+      flex-grow: 1;
+      flex-shrink: 1;
+      margin: 0 .7%;
+      span{
+        background-color: #ffd900;
+        color: #fff;
+        background-image: none;
+        width: 98%;
+        height: 40px;
+        font-size:16px;
+        font-weight: 700;
+        border-radius:4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a{
+          color: inherit;
+        }
+      }
     }
   }
 }
