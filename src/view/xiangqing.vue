@@ -71,7 +71,6 @@
   </div>
 </template>
 <style lang="less" scoped>
-@import '../style/css/reset.css'; 
 body,html{
   width: 100%;
   background: #6c6c6c;

@@ -13,6 +13,12 @@ module.exports = {
                 pathRewrite: {
                     '^/test': ''
                 }
+            },
+            '/wowo':{
+                target:'https://shopapi.smartisan.com',
+                pathRewrite:{
+                    '^/wowo':''
+                }
             }
         }
     }
