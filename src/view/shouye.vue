@@ -50,7 +50,7 @@
         <div class="whot-nav">
           <ul>
             <li
-            v-for="(item,index) in rexiao"
+            v-for="item in rxsp"
             :key="item.id"
             >
               <div class="wmask">
@@ -275,7 +275,8 @@ export default {
       shouye: [],
       rexiao:[],
       rexiao1:[],
-      rexiao2:[]
+      rxsp:[]
+
     };
   },
   methods: {
@@ -301,15 +302,15 @@ export default {
           this.rexiao = data.data.list;
           console.log(this.rexiao);
           this.$nextTick(()=>{
-            var obj=[];
+           
                  for(let i=0;i<this.rexiao1.length;i++){
                     for(let k=0;k<this.rexiao.length;k++){
                       if(this.rexiao1[i]==this.rexiao[k].id){
-                          obj.push(this.rexiao[k]);
+                          this.rxsp.push(this.rexiao[k]);
                         }
                         }
                         }
-                      console.log(obj)
+                      console.log(this.rxsp)
           })
           // setTimeout(() => {
           //    var obj={};
@@ -327,20 +328,20 @@ export default {
          
         })
     },
-    fn(rexiao1,rexiao){
-        console.log(rexiao1)
-     var obj={};
-        for(let i=0;i<rexiao1.length;i++){
-          for(let k=0;k<rexiao.length;k++){
-            if(rexiao1[i]==rexiao[k].id){
-              obj=rexiao[k];
-              break;
-            }
-          }
-        }
-        console.log(obj)
-        return obj
-    }
+    // fn(rexiao1,rexiao){
+    //     console.log(rexiao1)
+    //  var obj={};
+    //     for(let i=0;i<rexiao1.length;i++){
+    //       for(let k=0;k<rexiao.length;k++){
+    //         if(rexiao1[i]==rexiao[k].id){
+    //           obj=rexiao[k];
+    //           break;
+    //         }
+    //       }
+    //     }
+    //     console.log(obj)
+    //     return obj
+    // }
    
   },
     created() {
