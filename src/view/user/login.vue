@@ -27,19 +27,19 @@
           </li>
         </ul>
       </div>
-			<div class="l-lg-dlfs">
-				<ul>
-					<li class="iconfont icon-weibo"></li>
-					<li class="iconfont icon-QQ"></li>
-				</ul>
-			</div>
+      <div class="l-lg-dlfs">
+        <ul>
+          <li class="iconfont icon-weibo"></li>
+          <li class="iconfont icon-QQ"></li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
 
 
  <style lang="less"  scoped>
-@import "../style/css/reset.css";
+@import "../../style/css/reset.css";
 body,
 html {
   height: 100%;
@@ -121,25 +121,22 @@ html {
       margin-left: 6px;
       font-size: 12px;
     }
-	}
-	.l-lg-dlfs{
-		position: absolute;
-		bottom: 50px;
-		left: 50%;
-		 transform: translate(-50%);
-		ul{
-			 display: flex;
-			 justify-content: space-around;
-			 width: 100%;
-		
-			li{
-					 font-size: 40px;
-					 margin-right: 20px;
-				
+  }
+  .l-lg-dlfs {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%);
+    ul {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
 
-			}
-		}
-	}
-	
+      li {
+        font-size: 40px;
+        margin-right: 20px;
+      }
+    }
+  }
 }
 </style>
