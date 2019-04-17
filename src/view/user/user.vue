@@ -8,7 +8,7 @@
                 <router-link tag="div" to="login" class="l-denglu">
                     <div class="l-dl">
                     <div class="l-img">
-                            <img src="../style/img/touxiang.png" alt="">
+                            <img src="../../style/img/touxiang.png" alt="">
                     </div>
                     <div class="l-zc">
                         <ul>
@@ -41,10 +41,10 @@
                 </router-link>
                 <div class="l-address">
                     <ul>
-                        <li>
+                        <router-link tag="li" to="address">
                             <span>地址管理</span>
                             <span class="iconfont icon-youjiantou"></span>
-                        </li>
+                        </router-link>
                         <li>
                             <span>我的优惠卷</span>
                             <span class="iconfont icon-youjiantou"></span>
@@ -89,6 +89,6 @@
 
 </template>
 <style lang="less" scoped>
-@import '../style/css/reset.css'; 
-@import '../style/css/user.less'; 
+@import '../../style/css/reset.css'; 
+@import '../../style/css/user.less'; 
 </style>
