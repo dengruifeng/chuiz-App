@@ -119,7 +119,7 @@
                     <p> {{item.shop_info.sub_title}} </p>
                     <span>
                       <i>￥</i>
-                      <p> {{item.price}} </p>
+                      <p> {{item.price}} .00 </p>
                     </span>
                   </div>
                 </div>
@@ -158,7 +158,7 @@
                       </ul>
                       <span class="per-nav-span">
                         <i>￥</i>
-                        <p> {{item.price}}</p>
+                        <p> {{item.price}}.00</p>
                       </span>
                     </div>
                   </div>
@@ -201,8 +201,8 @@ export default {
           this.rexiao1 = data.floors[0].dataList;
           this.shouji = data.floors[2].dataList;
           this.pingpai = data.floors[6].dataList;
-          console.log(this.pingpai);
-          console.log(this.shouye);
+        //  console.log(this.pingpai);
+        //  console.log(this.shouye);
         });
     },
     getrexiao() {
@@ -247,7 +247,7 @@ export default {
                   }
                 }
               }
-              console.log(this.pp)
+             // console.log(this.pp)
             });
           // setTimeout(() => {
           //    var obj={};
