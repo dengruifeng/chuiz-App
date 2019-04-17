@@ -7,8 +7,8 @@
       <div class="l-lg-srk">
         <ul>
           <li>
-            <input type="text" placeholder="手机号/邮箱" name="username">
-            <input type="password" placeholder="密码" name="password">
+            <input type="text" placeholder="手机号/邮箱" v-model="username">
+            <input type="password" placeholder="密码"  v-model="password">
           </li>
         </ul>
         <ul>
@@ -17,7 +17,7 @@
         </ul>
         <ul>
           <li>
-            <input type="submit">
+            <input type="submit" placeholder="登录" @click="handleLogin">
           </li>
         </ul>
         <ul>
@@ -36,7 +36,28 @@
     </div>
   </div>
 </template>
+ <script>
+ export default {
+    data () {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+  methods: {
+    handleLogin () {
+      window.isLogin = true
+      // 假设这块登录成功。我们需要做的事情是：跳转回去
+      // 1. 不管如何都跳转首页
+      // this.$router.push('/');
 
+      // 2. 用户本来是想要进入哪里，就让他回答哪里
+      var redirect = this.$route.query.redirect || '/'
+      this.$router.replace(redirect)
+    }
+  }
+ }
+ </script>
 
  <style lang="less"  scoped>
 @import "../../style/css/reset.css";
