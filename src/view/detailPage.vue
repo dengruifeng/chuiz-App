@@ -100,6 +100,7 @@
 <script>
 import Axios from "axios";
 export default {
+  name:'detail',
   data() {
     return {
       phoneData: [],

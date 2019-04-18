@@ -52,6 +52,7 @@
 <script>
 import Axios from "axios"
 export default {
+  name:'detailmin',
   data() {
     return {
       //分类数据
