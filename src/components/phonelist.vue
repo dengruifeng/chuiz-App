@@ -15,8 +15,8 @@
       <div v-if="item.layout.type==='productLayoutCategoryOneOne'" class="rui-sjj">
         <div class="rui-sj" v-for="(item1) in item.layout.dataList" :key="item1.sku">
           <router-link :to="{name: 'detail', params:{id:item1.sku}}">
-            <img :src="item1.TMDdata.imgUrl">
-            <span>{{item1.TMDdata.imgData}}</span>
+            <img :src="item1.TMDdata && item1.TMDdata.imgUrl">
+            <span>{{item1.TMDdata && item1.TMDdata.imgData}}</span>
             <i class="iconfont icon-youjiantou"></i>
           </router-link>
         </div>
@@ -26,8 +26,8 @@
         <div class="rui-sj2">
           <div v-for="item2 in item.layout.dataList" :key="item2.sku">
             <router-link :to="{name: 'detail', params:{id:item2.sku}}">
-              <img :src="item2.sku">
-              <span>{{item2.TMDdata}}</span>
+              <img :src="item2.TMDdata && item2.TMDdata.imgUrl">
+              <span>{{item2.TMDdata && item2.TMDdata.imgData}}</span>
               <i class="iconfont icon-youjiantou"></i>
             </router-link>
           </div>
@@ -39,11 +39,11 @@
           <div class="rui-img11" v-for="item3 in item.layout.dataList" :key="item3.sku">
             <div>
               <router-link :to="{name: 'detail', params:{id:item3.sku}}">
-                <img :src="item3.TMDdata.imgUrl" alt>
+                <img :src="item3.TMDdata && item3.TMDdata.imgUrl" alt>
                 <br>
               </router-link>
             </div>
-            <span>{{item3.TMDdata.imgData}}</span>
+            <span>{{item3.TMDdata && item3.TMDdata.imgData}}</span>
           </div>
         </div>
       </div>
@@ -72,7 +72,7 @@ export default {
       ).then(res => {
         let data = res.data;
         this.fenleiData = data; //赋值
-        console.log(this.fenleiData);
+        // console.log(this.fenleiData);
       });
     },
     getdataid() {
@@ -84,8 +84,11 @@ export default {
           }
         }
       ).then(res => {
-        console.log(res.data.data.list);
-        this.dataid = res.data.data.list;
+         if(res.data){
+           this.dataid = res.data.data.list;
+         }else{
+           alert("商品已下架")
+         }
       });
     }
   },
@@ -96,7 +99,7 @@ export default {
       if (data1) {
         data1.forEach(x => {
           let data001 = x.image.linkUrl.split("/");
-          console.log(data001[data001.length - 1]);
+          // console.log(data001[data001.length - 1]);
           //地址商品编号重写
           x.image.linkUrl = data001[data001.length - 1];
         });
@@ -109,16 +112,16 @@ export default {
       let dataids = [];
       if (data2) {
         data2.forEach(x => {
-          //id
-          let data004 = x.id;
+          //id 
           //图片地址
-          let data002 = x.shop_info.ali_image;
           //图片说明文字
-          let data003 = x.shop_info.title;
+          
           let obj = {
-            id: data004,
-            imgUrl: data002,
-            imgData: data003
+            id: x.id,
+            spu_id:x.spu_id,
+            imgUrl: x.shop_info.ali_image,
+            imgData: x.shop_info.title
+
           };
           dataids.push(obj);
         });
@@ -135,17 +138,18 @@ export default {
           for (let key = 0; key < hhdata.length; key++) {
             //呵呵 删我啊！
             if (hhdata[key].sku == data32[i].id) {
-              hhdata[key].TMDdata = data32[i];
+              hhdata[key].TMDdata = data32[i]
+              hhdata[key].sku=data32[i].spu_id
             }
           }
         }
       }
-      console.log(data33);
+        console.log(data33);
       return data33;
     }
   },
   mounted() {
-    console.log(this.item);
+    // console.log(this.item);
   }
 };
 </script>
@@ -309,7 +313,7 @@ export default {
       display: block;
       width: 100%;
       margin: 6px 0 12px;
-      font-size: 0.5rem;
+      font-size: 14px;
       font-weight: 700;
       line-height: 1.2;
       text-align: center;

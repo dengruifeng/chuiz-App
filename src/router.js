@@ -14,6 +14,7 @@ export default new VueRouter({
         {path: '', redirect: '/home' }        
     ]
     },
-    {path: "/detailPage/:id", name: 'detail', component:()=>import('./view/detailPage.vue')}
+    {path: "/detailPage/:id", name: 'detail', component:()=>import('./view/detailPage.vue')},
+    {path: "/aaa",  component:()=>import('./view/vccc.vue')},
     ]
 })
