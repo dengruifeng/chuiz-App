@@ -1,51 +1,106 @@
 <template>
-  <div>
+  <div class="my-cat">
+    <van-nav-bar title="购物车" left-text="返回" left-arrow @click-left="$router.back()"/>
+
     <van-card
+      v-for="item in catData"
+      :key="item.goodId"
+      :price="item.price"
+      desc="描述信息"
+      :title="item.name"
+      :thumb="item.img"
+    >
+    <!-- <van-card
       num="2"
       tag="标签"
       price="2.00"
       desc="描述信息"
-      :title="title"
+      title="商品标题"
       :thumb="imageURL"
       origin-price="10.00"
-    >
-      <div slot="tags" class="card__tags">
-        <van-tag plain type="danger">标签1</van-tag>
-        <van-tag plain type="danger">标签2</van-tag>
-      </div>
+    > -->
       <div slot="footer">
-        <van-button size="mini">-</van-button>
-        <van-button size="mini">+</van-button>
+        <van-button size="mini" @click="catReduce(item)">-</van-button>
+        <span> {{ showNum(item.goodId) }} </span>
+        <van-button size="mini" @click="catAdd(item)">+</van-button>
       </div>
-     
     </van-card>
-     <van-submit-bar :price="8050" button-text="提交订单" @submit="onSubmit">
-        <van-checkbox v-model="checked">全选</van-checkbox>
-        <span slot="tip">
-          你的收货地址不支持同城送,
-          <span>修改地址</span>
-        </span>
-      </van-submit-bar>
+    <van-goods-action class="bottom">
+      <van-goods-action-mini-btn
+        v-if="goodCatNums"
+        icon="cart-o"
+        text="购物车"
+        :info="goodCatNums"
+        @click="show = !show"
+      />
+      <van-goods-action-mini-btn v-else icon="cart-o" text="购物车" @click="show = !show"/>
+      <van-goods-action-big-btn primary text="立即购买"/>
+    </van-goods-action>
+
+    <!-- <van-popup
+      v-model="show"
+      position="bottom"
+      >
+      <ul class="hello">
+        <li
+          v-for="good in catData"
+          :key="good.goodId">
+          {{ good.name }}
+
+          数量为：{{ good.num }}
+        </li>
+      </ul>
+    </van-popup>-->
   </div>
 </template>
+
 <script>
+import axios from "axios";
+import { mapState, mapMutations, mapGetters } from "vuex";
 export default {
   data() {
     return {
-      imageURL:
-        "//img.yzcdn.cn/upload_files/2017/07/02/af5b9f44deaeb68000d7e4a711160c53.jpg",
-      title: "2018秋冬新款男士休闲时尚军绿飞行夹克秋冬新款男",
-      checked: true,
-      onSubmit:true
+      show: false,
+      info: {},
     };
   },
-  methods:{
-     
+  computed: {
+    
+    ...mapState( [ 'catData' ] ),
+    ...mapGetters(["goodCatNums"])
+   
+  },
+  methods: {
+    ...mapMutations(["catAdd", "catReduce"]),
+    getDetailData() {
+      axios
+        .get("/json/list.json", {
+          params: {
+            id: this.$route.params.id
+          }
+        })
+        .then(res => {
+          let data = res.data;
+          this.info = data.find(item => {
+            return item.id === parseInt(this.$route.params.id);
+
+          });
+        });
+    },
+    showNum(goodId) {
+      var data = null;
+      data = this.$store.state.catData.find(item => item.goodId === goodId);
+      return data ? data.num : "";
+    }
+  },
+  created() {
+    //console.log(catData);
+    this.getDetailData();
   }
 };
 </script>
 <style lang="less">
-  .van-submit-bar{
-      bottom: 53px;
-  }
+.bottom {
+  bottom: 53px;
+}
 </style>

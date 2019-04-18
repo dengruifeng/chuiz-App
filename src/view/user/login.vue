@@ -53,6 +53,7 @@
 
       // 2. 用户本来是想要进入哪里，就让他回答哪里
       var redirect = this.$route.query.redirect || '/'
+     // console.log(redirect)
       this.$router.replace(redirect)
     }
   }
