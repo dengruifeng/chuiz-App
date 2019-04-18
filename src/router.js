@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 // 路由
 window.isLogin = false
-  
+
 const router = new VueRouter({
     routes: [{
         path: "/",
@@ -44,6 +44,9 @@ const router = new VueRouter({
             redirect: '/home'
         }
         ]
+    },
+    {
+        path: "/detailPage/:id", name: 'detail', component: () => import('./view/detailPage.vue')
     },
     {
         path: '/login',
