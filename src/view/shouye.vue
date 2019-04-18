@@ -2,10 +2,67 @@
   <div id="shouye">
     <div id="wheader">
       <div class="wheader">
-        <a href="#" class="iconfont icon-caidan1"></a>
+        <a href="#" class="iconfont icon-caidan1" @click="show = !show"></a>
         <a href="#" class="iconfont icon-chuizi"></a>
         <a href="#" class="iconfont icon-shousuo"></a>
       </div>
+      <transition
+          enter-active-class="animated fadeInDown"
+          leave-active-class="animated fadeOutUp"
+        >
+        <nav id="header-nav" v-if="show">
+          <ul>
+            <li>
+              <i class="iconfont icon-baobao"></i>
+              <a href="#">锤子科技商城</a>
+            </li>
+            <li>
+              <i class="iconfont icon-shouji1"></i>
+              <a href="#">坚果 Pro 2S</a>
+            </li>
+            <li>
+              <i class="iconfont icon-shouji"></i>
+              <a href="#">坚果 R1</a>
+            </li>
+            <li>
+              <i class="iconfont icon-diannao"></i>
+              <a href="#">坚果 TNT 工作站</a>
+            </li>
+            <li>
+              <i class="iconfont icon-shouji1"></i>
+              <a href="#">坚果 3</a>
+            </li>
+            <li>
+              <i class="iconfont icon-shouji"></i>
+              <a href="#">坚果 Pro 2</a>
+            </li>
+            <li>
+              <i class="iconfont icon-laxiang"></i>
+              <a href="#">8号商务旅行箱</a>
+            </li>
+            <li>
+              <i class="iconfont icon-xiangzi"></i>
+              <a href="#">8号旅行箱</a>
+            </li>
+            <li>
+              <i class="iconfont icon-chuizi"></i>
+              <a href="#">Smartisan OS</a>
+            </li>
+            <li>
+              <i class="iconfont icon-xiazai"></i>
+              <a href="#">应用</a>
+            </li>
+            <li>
+              <i class="iconfont icon-luntan"></i>
+              <a href="#">论坛</a>
+            </li>
+            <li>
+              <i class="iconfont icon-fuwuerji2"></i>
+              <a href="#">服务支持</a>
+            </li>
+          </ul>
+        </nav>
+      </transition>
     </div>
     <div id="main">
       <div id="wbanner">
@@ -107,19 +164,17 @@
           </div>
           <div class="column-w">
             <ul class="column-w-1">
-              <li  v-for="item in sj" :key="item.id">
+              <li v-for="item in sj" :key="item.id">
                 <div class="column-item">
                   <a href="#">
-                    <img
-                      :src="item.shop_info.ali_image"
-                    >
+                    <img :src="item.shop_info.ali_image">
                   </a>
                   <div class="item-con">
                     <h4>{{item.shop_info.title}}</h4>
-                    <p> {{item.shop_info.sub_title}} </p>
+                    <p>{{item.shop_info.sub_title}}</p>
                     <span>
                       <i>￥</i>
-                      <p> {{item.price}} .00 </p>
+                      <p>{{item.price}} .00</p>
                     </span>
                   </div>
                 </div>
@@ -138,15 +193,13 @@
             <ul>
               <li v-for="item in pp" :key="item.id">
                 <a href="#">
-                  <img
-                    :src="item.shop_info.ali_image"
-                  >
+                  <img :src="item.shop_info.ali_image">
                   <div class="per-nav-right">
-                    <h5>{{item.shop_info.sku_mobile_title}} </h5>
-                    <p>{{item.shop_info.sku_mobile_sub_title}} </p>
+                    <h5>{{item.shop_info.sku_mobile_title}}</h5>
+                    <p>{{item.shop_info.sku_mobile_sub_title}}</p>
                     <div class="attr-con">
                       <span class="box-border">
-                        <i> {{item.attr_info.value}} </i>
+                        <i>男款</i>
                       </span>
                       <ul class="color-switch">
                         <li></li>
@@ -158,7 +211,7 @@
                       </ul>
                       <span class="per-nav-span">
                         <i>￥</i>
-                        <p> {{item.price}}.00</p>
+                        <p>{{item.price}}.00</p>
                       </span>
                     </div>
                   </div>
@@ -185,8 +238,9 @@ export default {
       rxsp: [],
       shouji: [],
       sj: [],
-      pingpai:[],
-      pp:[]
+      pingpai: [],
+      pp: [],
+      show:false
     };
   },
   methods: {
@@ -201,8 +255,8 @@ export default {
           this.rexiao1 = data.floors[0].dataList;
           this.shouji = data.floors[2].dataList;
           this.pingpai = data.floors[6].dataList;
-        //  console.log(this.pingpai);
-        //  console.log(this.shouye);
+          //  console.log(this.pingpai);
+          //  console.log(this.shouye);
         });
     },
     getrexiao() {
@@ -237,18 +291,18 @@ export default {
                   }
                 }
               }
-             // console.log(this.sj)
+              // console.log(this.sj)
             });
-             this.$nextTick(() => {
-              for (let i = 0; i < this.pingpai.length; i++) {
-                for (let k = 0; k < this.rexiao.length; k++) {
-                  if (this.pingpai[i] == this.rexiao[k].id) {
-                    this.pp.push(this.rexiao[k]);
-                  }
+          this.$nextTick(() => {
+            for (let i = 0; i < this.pingpai.length; i++) {
+              for (let k = 0; k < this.rexiao.length; k++) {
+                if (this.pingpai[i] == this.rexiao[k].id) {
+                  this.pp.push(this.rexiao[k]);
                 }
               }
-             // console.log(this.pp)
-            });
+            }
+            // console.log(this.pp)
+          });
           // setTimeout(() => {
           //    var obj={};
           //        for(let i=0;i<this.rexiao1.length;i++){

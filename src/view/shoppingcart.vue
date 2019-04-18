@@ -72,21 +72,21 @@ export default {
   },
   methods: {
     ...mapMutations(["catAdd", "catReduce"]),
-    getDetailData() {
-      axios
-        .get("/json/list.json", {
-          params: {
-            id: this.$route.params.id
-          }
-        })
-        .then(res => {
-          let data = res.data;
-          this.info = data.find(item => {
-            return item.id === parseInt(this.$route.params.id);
+    // getDetailData() {
+    //   axios
+    //     .get("/json/list.json", {
+    //       params: {
+    //         id: this.$route.params.id
+    //       }
+    //     })
+    //     .then(res => {
+    //       let data = res.data;
+    //       this.info = data.find(item => {
+    //         return item.id === parseInt(this.$route.params.id);
 
-          });
-        });
-    },
+    //       });
+    //     });
+    // },
     showNum(goodId) {
       var data = null;
       data = this.$store.state.catData.find(item => item.goodId === goodId);
