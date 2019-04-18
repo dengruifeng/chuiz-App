@@ -26,7 +26,43 @@ body,html{
     color: #fff;
     font-size: 18px;
 }
-
+#header-nav{
+    background: currentColor;
+    color: #000;
+    overflow: auto;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 300;
+    background-color: rgba(0, 0,0, 0.8)
+}
+#header-nav ul{
+    background-position: -1px -1px;
+    position: relative;
+    background-image: repeating-linear-gradient(90deg,#141414,#141414 1px,transparent 0,transparent 25%),repeating-linear-gradient(180deg,#141414,#141414 1px,transparent 0,transparent 70px);
+}
+#header-nav ul li{
+    box-sizing: border-box;
+    float: left;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-around;
+    height: 70px;
+    width: 25%;
+    padding: 8px 1px 1px 0;
+    position: relative;
+    color: #ddd;
+}
+#header-nav ul li i{
+    font-size: 28px;
+}
+#header-nav ul li a{
+    font-size: 12px;
+    color: #ddd;
+}
 .icon-chuizi {
     color: #fff;
     font-size: 26px;

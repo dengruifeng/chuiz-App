@@ -77,7 +77,7 @@
       display: block;
       width: 100%;
       margin: 6px 0 12px;
-      font-size: 0.5rem;
+      font-size: 0.15rem;
       font-weight: 700;
       line-height: 1.2;
       text-align: center;

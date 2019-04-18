@@ -55,6 +55,7 @@ export default {
 <style lang="less">
 .fenlei {
     position: fixed;
+    width:100%;
     top: 50px;
     bottom: 53px;
     overflow-x:hidden;
