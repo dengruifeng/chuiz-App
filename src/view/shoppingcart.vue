@@ -55,11 +55,11 @@ export default {
   },
   methods: {
     ...mapMutations(["catAdd", "catReduce"]),
-    showNum(goodId) {
-      var data = null;
-      data = this.$store.state.catData.find(item => item.goodId === goodId);
-      return data ? data.num : "";
-    }
+    // showNum(goodId) {
+    //   var data = null;
+    //   data = this.$store.state.catData.find(item => item.goodId === goodId);
+    //   return data ? data.num : "";
+    // }
   },
   created() {
     //console.log(catData);
