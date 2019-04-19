@@ -11,7 +11,7 @@ const store = new vuex.Store({
     //放数据的
      catData: localStorage.getItem('catData') ? JSON.parse(localStorage.getItem('catData')) : 
     [],
-   
+    // userName:"登录/注册"
     
   },
   getters: {
@@ -32,7 +32,6 @@ const store = new vuex.Store({
   mutations: {
     //唯一能修改 state 的东西
     catAdd(state, good) {
-     
       // 判断当前点击的good是否已经加入了购物车
       var index = state.catData.findIndex(item => item.goodsId === good.goodsId);
       if (index > -1) {
@@ -64,7 +63,10 @@ const store = new vuex.Store({
       // 将当前的购物车数据存放到本地存储里面。
       localStorage.setItem('catData', JSON.stringify(state.catData))
     },
-
+    //登录后改名
+    // getuserName(state,id){
+    //   state.userName=id
+    // }
   },
   modules: {
     seller: seller

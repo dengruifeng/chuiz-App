@@ -38,7 +38,7 @@
   </div>
 </template>
  <script>
- import { mapState} from "vuex";
+ import { mapState,mapMutations} from "vuex";
 export default {
   data() {
     return {
@@ -60,18 +60,19 @@ export default {
     }
   },
   methods: {
+     ...mapMutations(["getuserName"]),
     handleLogin() {
       window.isLogin = true;
       // 假设这块登录成功。我们需要做的事情是：跳转回去
       // 1. 不管如何都跳转首页
+      
       // this.$router.push('/');
-
       // 2. 用户本来是想要进入哪里，就让他回答哪里
       var redirect = this.$route.query.redirect || "/";
       // console.log(redirect)
       this.$router.replace(redirect);
-       localStorage.setItem('LoginData', JSON.stringify(this.username))
-       //localStorage.setItem('LoginData', JSON.stringify(this.password))
+      localStorage.setItem('LoginData', JSON.stringify(this.username))
+      //localStorage.setItem('LoginData', JSON.stringify(this.password))
     }
   },
   watch: {

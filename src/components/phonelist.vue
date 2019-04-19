@@ -72,8 +72,6 @@ export default {
         "/api/marketing/mobile/category_9ece7f9260dbe582eca6a5cbf26981b2.json"
       ).then(res => {
         let data = res.data;
-        //  console.log(res.data);
-
         this.fenleiData = data; //赋值
       });
     },
@@ -87,7 +85,10 @@ export default {
         }
       ).then(res => {
          if(res.data){
-           this.dataid = res.data.data.list;
+           if(res.data.code == 500){
+             alert("老板已跑路")
+             }
+             this.dataid = res.data.data.list;
          }else{
            alert("商品已下架")
          }
