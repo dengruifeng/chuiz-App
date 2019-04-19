@@ -43,7 +43,7 @@ const router = new VueRouter({
         if (!flag) {
           next()
         } else {
-          alert('')
+          alert('已经登录')
         }
         
       }

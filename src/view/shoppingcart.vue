@@ -5,7 +5,7 @@
     <van-card
       v-for="item in catData"
       :key="item.goodsId"
-      :price="item.selectedSkuComb  &&  item.selectedSkuComb.price/100"
+      :price="item.selectedSkuComb  &&  item.selectedSkuComb.price/100 + '.00'"
       desc="描述信息"
       :title="item.selectedSkuComb && item.selectedSkuComb.title"
       :thumb="item.selectedSkuComb && item.selectedSkuComb.imgUrl"
@@ -34,7 +34,7 @@
         @click="show = !show"
       />
       <van-goods-action-mini-btn v-else icon="cart-o" text="购物车" @click="show = !show"/>
-      <van-goods-action-big-btn primary text="立即购买"/>
+      <van-goods-action-big-btn primary text="立即支付"/>
     </van-goods-action>
   </div>
 </template>
