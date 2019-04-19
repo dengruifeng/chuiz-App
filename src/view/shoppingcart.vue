@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 import { mapState, mapMutations, mapGetters } from "vuex";
 export default {
   data() {
@@ -65,7 +65,7 @@ export default {
   },
   created() {
     //console.log(catData);
-    this.getDetailData();
+   // this.getDetailData();
   }
 };
 </script>

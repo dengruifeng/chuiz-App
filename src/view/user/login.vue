@@ -17,7 +17,8 @@
         </ul>
         <ul>
           <li>
-            <input type="submit" placeholder="登录" @click="handleLogin">
+            <input type="submit" value="登录" @click="handleLogin" v-if="this.flagName">
+            <input type="submit" value="登录"  v-else class="yanz" >
           </li>
         </ul>
         <ul>
@@ -41,7 +42,9 @@
     data () {
     return {
       username: '',
-      password: ''
+      password: '',
+      flagName: false,
+      flagPwd: false
     }
   },
   methods: {
@@ -55,8 +58,25 @@
       var redirect = this.$route.query.redirect || '/'
      // console.log(redirect)
       this.$router.replace(redirect)
-    }
-  }
+      //  var phoneReg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/
+
+      //  if (phoneReg.test(this.username)) {
+      //      flagName = true;
+      //  }
+      
+    },
+
+  },
+  watch: {
+        yanz (){
+          var phoneReg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/
+
+        if (phoneReg.test(this.username)) {
+            this.flagName = true;
+          }
+        }
+    },
+  
  }
  </script>
 
@@ -67,6 +87,7 @@ html {
   height: 100%;
   background: #e3e3e3;
 }
+
 .l-lg {
   width: 100%;
   color: #ffffff;
@@ -79,7 +100,7 @@ html {
 }
 .l-lg-main {
   background: #e3e3e3;
-  height: 100%;
+  height: 667px;
   width: 100%;
   padding-top: 10px;
   ul:nth-child(1) {
@@ -133,6 +154,9 @@ html {
       color: #ffffff;
       font-size: 20px;
     }
+    .yanz{
+  background: #cccccc;
+}
   }
   ul:nth-child(4) {
     margin-right: 12%;
