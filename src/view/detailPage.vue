@@ -153,6 +153,7 @@ export default {
       let listData = [];
       if (data) {
         data = data.spec_v2;
+        
         if (data) {
           for (let i = 0; i < data.length; i++) {
             if (i == 0) {
@@ -190,6 +191,7 @@ export default {
         }
       }
       if (dataList) {
+        console.log(dataList)
         this.goods.picture = dataList[0].ali_image;
         let imgUrltt = [];
         for (let j = 0; j < dataList.length; j++) {
@@ -201,7 +203,9 @@ export default {
             s2: dataList[j].spec_json[1] && dataList[j].spec_json[1].spec_value_id, // 规格类目 k_s 为 s2 的对应规格值 id
             s3: "0", // 最多包含3个规格值，为0表示不存在该规格
             stock_num: 118 * dataList[j].price, // 当前 sku 组合对应的库存
-            imgUrl: dataList[j].ali_image
+            imgUrl: dataList[j].ali_image,
+            show_name:dataList[j].spec_json[0].show_name,
+            show_name_r:dataList[j].spec_json[1] && dataList[j].spec_json[1].show_name,
           };
           listData.push(objL);
         }
@@ -231,8 +235,10 @@ export default {
     },
 
     //添加购物车
-    onBuyClicked() {
+    onBuyClicked(skuData) {
       alert("tttmmm");
+      //  let tt=ref.sku.getSkuData()
+       console.log(skuData)
     },
     //加入购物车
     onAddCartClicked() {
@@ -241,9 +247,9 @@ export default {
     skuSelected() {
       alert("++++");
     },
-    getSkuData() {
-      alert(skuData);
-    }
+    // getSkuData() {
+    //   alert(skuData);
+    // }
   },
   created() {
     this.getdetail();
