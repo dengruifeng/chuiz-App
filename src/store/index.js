@@ -37,7 +37,7 @@ const store = new vuex.Store({
     catAdd(state, good) {
       
       // 判断当前点击的good是否已经加入了购物车
-      var index = state.catData.findIndex(item => item.goodId === good.goodId);
+      var index = state.catData.findIndex(item => item.goodsId === good.goodsId);
       if (index > -1) {
         // 存在
         state.catData[index].selectedNum += 1;
@@ -53,7 +53,7 @@ const store = new vuex.Store({
     },
     catReduce(state, good) {
       // 判断当前点击的good是否已经加入了购物车
-      var index = state.catData.findIndex(item => item.goodId === good.goodId);
+      var index = state.catData.findIndex(item => item.goodsId === good.goodsId);
       if (index > -1) {
         // 存在
         if (state.catData[index].selectedNum === 1) {

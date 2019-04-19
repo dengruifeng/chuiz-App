@@ -70,7 +70,5 @@ export default {
 };
 </script>
 <style lang="less">
-.bottom {
-  bottom: 53px;
-}
+
 </style>
