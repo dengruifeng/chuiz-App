@@ -9,12 +9,10 @@ const store = new vuex.Store({
 
   state: {
     //放数据的
-    // catData: localStorage.getItem('catData') ? JSON.parse(localStorage.getItem('catData')) : [],
-    catData: [
-       
-     
-    ],
-    LoginData: localStorage.getItem('LoginData') ? JSON.parse(localStorage.getItem('LoginData')) : [],
+     catData: localStorage.getItem('catData') ? JSON.parse(localStorage.getItem('catData')) : 
+    [],
+   
+    
   },
   getters: {
     //对数据的二次计算

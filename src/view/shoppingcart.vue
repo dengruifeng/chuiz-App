@@ -5,7 +5,7 @@
     <van-card
       v-for="item in catData"
       :key="item.goodsId"
-      :price="item.selectedSkuComb  &&  item.selectedSkuComb.price"
+      :price="item.selectedSkuComb  &&  item.selectedSkuComb.price/100"
       desc="描述信息"
       :title="item.selectedSkuComb && item.selectedSkuComb.title"
       :thumb="item.selectedSkuComb && item.selectedSkuComb.imgUrl"
@@ -68,7 +68,5 @@ export default {
 };
 </script>
 <style lang="less">
-.bottom {
-  bottom: 53px;
-}
+
 </style>

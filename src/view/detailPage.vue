@@ -244,7 +244,14 @@ export default {
 
     //添加购物车
     onBuyClicked(skuData) {
-      this.$store.state.catData.push(skuData)
+      var index = this.$store.state.catData.findIndex(item => item.goodsId === skuData.goodsId);
+       if (index > -1) {
+        // 存在
+        this.$store.state.catData[index].selectedNum += 1;
+      } else {
+        // 不存在
+       this.$store.state.catData.push(skuData)
+      }
       this.$router.push({ name: 'shoppingcart'})
     },
     //加入购物车
