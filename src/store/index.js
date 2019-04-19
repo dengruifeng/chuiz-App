@@ -40,7 +40,8 @@ const store = new vuex.Store({
         "num": 1,
       },
      
-    ]
+    ],
+    LoginData: localStorage.getItem('LoginData') ? JSON.parse(localStorage.getItem('LoginData')) : [],
   },
   getters: {
     //对数据的二次计算

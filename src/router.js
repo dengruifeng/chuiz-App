@@ -20,20 +20,20 @@ const router = new VueRouter({
         {
             path: "shoppingcart",
             component: () => import('./view/shoppingcart.vue'),
-            // beforeEnter: (to, from, next) => {
-            //     if (!window.isLogin) {
-            //         // 没有登录
-            //         alert('请先登录')
-            //         next({
-            //             path: '/login',
-            //             query: {
-            //                 redirect: to.fullPath
-            //             }
-            //         })
-            //     } else {
-            //         next()
-            //     }
-            // }
+            beforeEnter: (to, from, next) => {
+                if (!window.isLogin) {
+                    // 没有登录
+                    alert('请先登录')
+                    next({
+                        path: '/login',
+                        query: {
+                            redirect: to.fullPath
+                        }
+                    })
+                } else {
+                    next()
+                }
+            }
         },
         {
             path: "user",
