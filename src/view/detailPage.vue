@@ -198,7 +198,6 @@ export default {
         }
       }
       if (dataList) {
-         console.log(dataList)
         this.goods.picture = dataList[0].ali_image;
         let imgUrltt = [];
         for (let j = 0; j < dataList.length; j++) {
@@ -245,15 +244,12 @@ export default {
 
     //添加购物车
     onBuyClicked(skuData) {
-      alert("tttmmm");
-      //  let tt=ref.sku.getSkuData()
-       console.log(skuData)
+      this.$store.state.catData.push(skuData)
+      this.$router.push({ name: 'shoppingcart'})
     },
     //加入购物车
     onAddCartClicked(skuData) {
-    // this.$store.state.catDate.push(skuData)
-    console.log(this.$store.state.catData.push(skuData))
-    console.log(this.$store.state.catData)
+    this.$store.state.catData.push(skuData)
     this.show=true
     },
     skuSelected() {

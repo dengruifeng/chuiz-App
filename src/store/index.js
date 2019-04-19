@@ -35,7 +35,7 @@ const store = new vuex.Store({
   mutations: {
     //唯一能修改 state 的东西
     catAdd(state, good) {
-      
+     
       // 判断当前点击的good是否已经加入了购物车
       var index = state.catData.findIndex(item => item.goodsId === good.goodsId);
       if (index > -1) {
@@ -47,6 +47,7 @@ const store = new vuex.Store({
           selectedNum: 1
         }));
       }
+      console.log(state.catData[index].selectedNum)
       // console.log(state.catData[index].num)
       // 将当前的购物车数据存放到本地存储里面。
       localStorage.setItem('catData', JSON.stringify(state.catData))
@@ -64,6 +65,7 @@ const store = new vuex.Store({
           state.catData[index].selectedNum -= 1;
         }
       }
+      console.log(state.catData[index].selectedNum)
       // 将当前的购物车数据存放到本地存储里面。
       localStorage.setItem('catData', JSON.stringify(state.catData))
     },
