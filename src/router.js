@@ -63,7 +63,7 @@ const router = new VueRouter({
         if (!window.isLogin) {
           // 没有登录
           alert('请先登录')
-          console.log(to, from)
+         // console.log(to, from)
           next({
             path: '/login',
             query: {
@@ -99,17 +99,17 @@ const router = new VueRouter({
   ]
 })
 
-router.beforeEach((to, from, next) => {
+//router.beforeEach((to, from, next) => {
   //to 将要去的路由对象
   // from 当前的路由对象
   // next 是否允许 如果使用就不跳转
   // console.log('全局前置守卫')
   // console.log(to)
   // console.log(from)
-  next();
-})
-router.afterEach((to, from) => {
+//  next();
+//})
+//router.afterEach((to, from) => {
   // console.log('全局后置守卫')
-})
+//})
 
 export default router;

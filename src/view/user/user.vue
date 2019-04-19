@@ -12,7 +12,7 @@
                     </div>
                     <div class="l-zc">
                         <ul>
-                            <li>登录/注册</li>
+                            <li>{{getuserName}}</li>
                             <li class="iconfont icon-youjiantou"></li>
                         </ul>
                     </div>
@@ -86,8 +86,28 @@
             </div>
        </div>
     </div>
-
 </template>
+<script>
+export default {
+    data() {
+        return {
+            getuserName:'登录/注册'
+        }
+    },
+    methods: {
+        getUser(){
+            let userN=localStorage.getItem('LoginData') 
+           if(userN){
+               
+             this.getuserName = userN  
+           }  
+        }
+    },
+    mounted(){
+        this.getUser()
+    }
+}
+</script>
 <style lang="less" scoped>
 @import '../../style/css/reset.css'; 
 @import '../../style/css/user.less'; 

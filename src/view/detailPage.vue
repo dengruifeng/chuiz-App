@@ -49,12 +49,12 @@
             <h6>已选版本</h6>
             <div>
               <p>
-                <span>颜色：</span>
-                <span>碳黑色（细红线版）</span>
+                <span>{{sku.tree[0] && sku.tree[0].k}}：</span>
+                <span>{{sku.list[0] && sku.list[0].show_name}}</span>
               </p>
               <p>
-                <span>容量：</span>
-                <span>4G + 64GB</span>
+                <span>{{sku.tree[1] && sku.tree[1].k + "："}}</span>
+                <span>{{sku.list[0] && sku.list[0].show_name_r}}</span>
               </p>
               <p>
                 <span>数量：</span>
@@ -83,7 +83,6 @@
       <van-dialog
           v-model="show"
           message= '加入车子成功'
-          
         >
       </van-dialog>
       <van-sku
@@ -139,7 +138,6 @@ export default {
   },
   computed: {
     getDataShow() {
-      // console.log(this.phoneData);
       let data = this.phoneData[0] && this.phoneData[0].shop_info;
       let dataList = this.phoneData[0] && this.phoneData[0].sku_info;
       this.goodsId = this.phoneData[0] && this.phoneData[0].id;
@@ -160,7 +158,6 @@ export default {
       let listData = [];
       if (data) {
         data = data.spec_v2;
-        
         if (data) {
           for (let i = 0; i < data.length; i++) {
             if (i == 0) {
@@ -194,14 +191,13 @@ export default {
           if(rolData.k_s ){
             this.sku.tree.push(rolData);
           }
-          // console.log(this.sku.tree);
+          //  console.log(this.sku.tree);
         }
       }
       if (dataList) {
         this.goods.picture = dataList[0].ali_image;
         let imgUrltt = [];
         for (let j = 0; j < dataList.length; j++) {
-          // imgUrltt.push(dataList[j].ali_image)
           let objL = {
             id: dataList[j].sku_id, // skuId，下单时后端需要
             price: dataList[j].price * 100, // 价格（单位分）
@@ -221,6 +217,10 @@ export default {
         this.sku.list.push(...listData);
         // console.log(this.sku.list);
       }
+    },
+    getCanshu(){
+      let color=this.sku.price
+      // console.log(color)
     }
   },
   watch: {
