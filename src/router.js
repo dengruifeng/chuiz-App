@@ -19,6 +19,7 @@ const router = new VueRouter({
         },
         {
             path: "shoppingcart",
+            name: 'shoppingcart',
             component: () => import('./view/shoppingcart.vue'),
             beforeEnter: (to, from, next) => {
                 let flag=localStorage.getItem('LoginData')
@@ -72,7 +73,6 @@ const router = new VueRouter({
             if (!window.isLogin) {
                 // 没有登录
                 alert('请先登录')
-                console.log(to,from)
                 next({
                     path: '/login',
                     query: {

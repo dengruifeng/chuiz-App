@@ -50,10 +50,8 @@ export default {
     };
   },
   computed: {
-    
     ...mapState( [ 'catData' ] ),
     ...mapGetters(["goodCatNums"])
-   
   },
   methods: {
     ...mapMutations(["catAdd", "catReduce"]),
