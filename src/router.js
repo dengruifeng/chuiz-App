@@ -18,26 +18,7 @@ const router = new VueRouter({
           component: () => import('./view/fenlei.vue')
         },
        
-        {
-            path: "shoppingcart",
-            name: 'shoppingcart',
-            component: () => import('./view/shoppingcart.vue'),
-            beforeEnter: (to, from, next) => {
-                let flag=localStorage.getItem('LoginData')
-                if ( !flag) {
-                    // 没有登录
-                    alert('请先登录')
-                    next({
-                        path: '/login',
-                        query: {
-                            redirect: to.fullPath
-                        }
-                    })
-                } else {
-                    next()
-                }
-            }
-        },
+       
         {
             path: "user",
             component: () => import('./view/user/user.vue')
@@ -96,8 +77,8 @@ const router = new VueRouter({
       }
     },
     {
-<<<<<<< HEAD
       path: "/shoppingcart",
+      name: 'shoppingcart',
       component: () => import('./view/shoppingcart.vue'),
       beforeEnter: (to, from, next) => {
         let flag = localStorage.getItem('LoginData')
@@ -108,23 +89,6 @@ const router = new VueRouter({
             path: '/login',
             query: {
               redirect: to.fullPath
-=======
-        path: '/address',
-        component: () => import('./view/user/address.vue'),
-        beforeEnter: (to, from, next) => {
-            if (!window.isLogin) {
-                // 没有登录
-                alert('请先登录')
-                next({
-                    path: '/login',
-                    query: {
-                        redirect: to.fullPath
-                    }
-                    
-                })
-            } else {
-                next()
->>>>>>> d9ba70e8ce2e11fcfa50f5d364ace43274e94438
             }
           })
         } else {
