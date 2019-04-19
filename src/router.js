@@ -21,7 +21,8 @@ const router = new VueRouter({
             path: "shoppingcart",
             component: () => import('./view/shoppingcart.vue'),
             beforeEnter: (to, from, next) => {
-                if (!window.isLogin) {
+                let flag=localStorage.getItem('LoginData')
+                if ( !flag) {
                     // 没有登录
                     alert('请先登录')
                     next({

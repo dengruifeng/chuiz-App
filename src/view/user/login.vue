@@ -70,7 +70,6 @@ export default {
       var redirect = this.$route.query.redirect || "/";
       // console.log(redirect)
       this.$router.replace(redirect);
-       
        localStorage.setItem('LoginData', JSON.stringify(this.username))
        //localStorage.setItem('LoginData', JSON.stringify(this.password))
     }

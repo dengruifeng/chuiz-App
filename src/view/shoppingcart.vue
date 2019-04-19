@@ -4,11 +4,11 @@
 
     <van-card
       v-for="item in catData"
-      :key="item.goodId"
-      :price="item.price"
+      :key="item.goodsId"
+      :price="item.selectedSkuComb  &&  item.selectedSkuComb.price"
       desc="描述信息"
-      :title="item.name"
-      :thumb="item.img"
+      :title="item.selectedSkuComb && item.selectedSkuComb.title"
+      :thumb="item.selectedSkuComb && item.selectedSkuComb.imgUrl"
     >
     <!-- <van-card
       num="2"
@@ -21,7 +21,7 @@
     > -->
       <div slot="footer">
         <van-button size="mini" @click="catReduce(item)">-</van-button>
-        <span> {{ showNum(item.goodId) }} </span>
+        <span> {{ item.selectedNum }} </span>
         <van-button size="mini" @click="catAdd(item)">+</van-button>
       </div>
     </van-card>
