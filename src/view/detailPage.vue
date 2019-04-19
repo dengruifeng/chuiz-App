@@ -1,7 +1,7 @@
 <template>
   <div id="xq">
     <div id="xq-header">
-      <a href="#" class="nav-back">
+      <a href="#" class="nav-back" @click="$router.go(-1)">
         <i class="iconfont icon-xiazai6"></i>
         返回
       </a>
@@ -80,6 +80,12 @@
           </span>
         </div>
       </div>
+      <van-dialog
+          v-model="show"
+          message= '加入车子成功'
+          
+        >
+      </van-dialog>
       <van-sku
         v-model="showBase"
         :sku="sku"
@@ -103,6 +109,7 @@ export default {
   name:'detail',
   data() {
     return {
+      show: false,
       phoneData: [],
       gouwuData: [],
       showBase: false,
@@ -177,7 +184,7 @@ export default {
                 }
 
                 if (i == 1) {
-                  console.log(i)
+                  // console.log(i)
                   rolData.v.push(obj);
                 }
               }
@@ -191,7 +198,7 @@ export default {
         }
       }
       if (dataList) {
-        console.log(dataList)
+         console.log(dataList)
         this.goods.picture = dataList[0].ali_image;
         let imgUrltt = [];
         for (let j = 0; j < dataList.length; j++) {
@@ -206,6 +213,7 @@ export default {
             imgUrl: dataList[j].ali_image,
             show_name:dataList[j].spec_json[0].show_name,
             show_name_r:dataList[j].spec_json[1] && dataList[j].spec_json[1].show_name,
+            title:dataList[j].title
           };
           listData.push(objL);
         }
@@ -232,6 +240,7 @@ export default {
         }
         // console.log(res.data)
       });
+      
     },
 
     //添加购物车
@@ -241,11 +250,15 @@ export default {
        console.log(skuData)
     },
     //加入购物车
-    onAddCartClicked() {
-      alert("++++");
+    onAddCartClicked(skuData) {
+    // this.$store.state.catDate.push(skuData)
+    console.log(this.$store.state.catData.push(skuData))
+    console.log(this.$store.state.catData)
+    this.show=true
     },
     skuSelected() {
       alert("++++");
+     
     },
     // getSkuData() {
     //   alert(skuData);

@@ -62,7 +62,7 @@ export default {
     };
   },
   created() {
-    console.log(1)
+    // console.log(1)
     this.getdata();
     this.getdataid();
   },
@@ -72,7 +72,7 @@ export default {
         "/api/marketing/mobile/category_9ece7f9260dbe582eca6a5cbf26981b2.json"
       ).then(res => {
         let data = res.data;
-         console.log(res.data);
+        //  console.log(res.data);
 
         this.fenleiData = data; //赋值
       });
@@ -145,7 +145,7 @@ export default {
           }
         }
       }
-        console.log(data33);
+        // console.log(data33);
       return data33;
     }
   },

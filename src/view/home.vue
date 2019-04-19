@@ -13,7 +13,7 @@ methods: {
     getData () {
         Axios.get('/api/marketing/mobile/index_0c7224a47d50b15665c10f9c112f916b.json',{
         }).then(res => {
-            console.log(res.data);
+            // console.log(res.data);
         })
     }
 },
