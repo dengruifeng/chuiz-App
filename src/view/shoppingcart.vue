@@ -36,6 +36,22 @@
       <van-goods-action-mini-btn v-else icon="cart-o" text="购物车" @click="show = !show"/>
       <van-goods-action-big-btn primary text="立即支付"/>
     </van-goods-action>
+    <van-popup 
+      v-model="show"
+      position="bottom"
+      >
+      <ul class="hello">
+        <li
+          v-for="good in catData"
+          :key="good.goodsId">
+          <img :src="good.selectedSkuComb.imgUrl" >
+          
+          {{ good.selectedSkuComb.title }}
+
+          数量为：{{ good.selectedNum }}
+        </li>
+      </ul>
+    </van-popup>
   </div>
 </template>
 
@@ -68,5 +84,19 @@ export default {
 };
 </script>
 <style lang="less">
-
+.van-popup--bottom{
+ bottom: 50px;
+ z-index: 9;
+}
+.van-goods-action{
+  z-index: 99999;
+}
+ .hello{
+   li{
+     img{
+       width: 60px;
+       height: 70px;
+     }
+   }
+ }
 </style>
