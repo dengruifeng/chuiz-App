@@ -63,7 +63,7 @@ const store = new vuex.Store({
           state.catData[index].selectedNum -= 1;
         }
       }
-      console.log(state.catData[index].selectedNum)
+     // console.log(state.catData[index].selectedNum)
       // 将当前的购物车数据存放到本地存储里面。
       localStorage.setItem('catData', JSON.stringify(state.catData))
     },

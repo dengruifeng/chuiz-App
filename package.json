@@ -45,9 +45,17 @@
   },
   "postcss": {
     "plugins": {
-      "autoprefixer": {}
+      "autoprefixer": {},
+      "postcss-pxtorem": {
+        "rootValue": 100,
+        "propList": [
+          "*"
+        ],
+        "selectorBlackList": []
+      }
     }
   },
+
   "browserslist": [
     "> 1%",
     "last 2 versions",

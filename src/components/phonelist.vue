@@ -243,6 +243,7 @@ export default {
   margin-bottom: 6px;
   background: #fff;
   div {
+    width: 49%;
     a {
       height: 69px;
       line-height: 69px;
