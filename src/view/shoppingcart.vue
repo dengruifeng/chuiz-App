@@ -36,21 +36,6 @@
       <van-goods-action-mini-btn v-else icon="cart-o" text="购物车" @click="show = !show"/>
       <van-goods-action-big-btn primary text="立即购买"/>
     </van-goods-action>
-
-    <!-- <van-popup
-      v-model="show"
-      position="bottom"
-      >
-      <ul class="hello">
-        <li
-          v-for="good in catData"
-          :key="good.goodId">
-          {{ good.name }}
-
-          数量为：{{ good.num }}
-        </li>
-      </ul>
-    </van-popup>-->
   </div>
 </template>
 
@@ -72,21 +57,6 @@ export default {
   },
   methods: {
     ...mapMutations(["catAdd", "catReduce"]),
-    // getDetailData() {
-    //   axios
-    //     .get("/json/list.json", {
-    //       params: {
-    //         id: this.$route.params.id
-    //       }
-    //     })
-    //     .then(res => {
-    //       let data = res.data;
-    //       this.info = data.find(item => {
-    //         return item.id === parseInt(this.$route.params.id);
-
-    //       });
-    //     });
-    // },
     showNum(goodId) {
       var data = null;
       data = this.$store.state.catData.find(item => item.goodId === goodId);
