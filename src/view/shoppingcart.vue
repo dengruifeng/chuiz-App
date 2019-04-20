@@ -5,8 +5,8 @@
     <van-card
       v-for="item in catData"
       :key="item.goodsId"
-      :price="item.selectedSkuComb  &&  item.selectedSkuComb.price/100 * item.selectedNum"
-      desc="描述信息"
+      :price="item.selectedSkuComb  &&  item.selectedSkuComb.price/100 * item.selectedNum + '.00'"
+      :desc="item.selectedSkuComb  && item.selectedSkuComb.show_name  "
       :title="item.selectedSkuComb && item.selectedSkuComb.title"
       :thumb="item.selectedSkuComb && item.selectedSkuComb.imgUrl"
     >
@@ -83,7 +83,7 @@ export default {
   }
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .van-popup--bottom{
  bottom: 50px;
  z-index: 9;

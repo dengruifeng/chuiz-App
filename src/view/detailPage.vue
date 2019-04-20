@@ -82,7 +82,7 @@
       </div>
       <van-dialog
           v-model="show"
-          message= '加入车子成功'
+          message= '加入购物车成功'
         >
       </van-dialog>
       <van-sku
@@ -136,6 +136,7 @@ export default {
       }
     };
   },
+  
   computed: {
     getDataShow() {
       let data = this.phoneData[0] && this.phoneData[0].shop_info;
@@ -218,8 +219,8 @@ export default {
         // console.log(this.sku.list);
       }
     },
-    getCanshu(){
-      let color=this.sku.price
+    getCanshu () {
+      let color =this.sku.price
       // console.log(color)
     }
   },
@@ -245,19 +246,30 @@ export default {
     //添加购物车
     onBuyClicked(skuData) {
       var index = this.$store.state.catData.findIndex(item => item.goodsId === skuData.goodsId);
-       if (index > -1) {
+     if (index > -1) {
         // 存在
-        this.$store.state.catData[index].selectedNum += 1;
+       this.$router.push({ name: 'shoppingcart'})
       } else {
         // 不存在
-       this.$store.state.catData.push(skuData)
+        alert('先加入车子')
       }
-      this.$router.push({ name: 'shoppingcart'})
     },
     //加入购物车
     onAddCartClicked(skuData) {
-    this.$store.state.catData.push(skuData)
-    this.show=true
+     // console.log(skuData)
+    var index = this.$store.state.catData.findIndex(item => item.goodsId === skuData.goodsId);
+       if (index > -1) {
+        // 存在
+        
+        this.$store.state.catData[index].selectedNum += +skuData.selectedNum;
+        localStorage.setItem('catData', JSON.stringify( this.$store.state.catData))
+      } else {
+        // 不存在
+        // console.log(skuData.selectedNum)
+       this.$store.state.catData.push(skuData);
+       localStorage.setItem('catData', JSON.stringify( this.$store.state.catData))
+      }
+      this.show=true
     },
     skuSelected() {
       alert("++++");
